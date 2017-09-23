@@ -273,7 +273,7 @@
         <p id="loadNum">0%</p>
    </div>
 </div>
-<audio id="song" type="audio/mp3" src="js/song.mp3" loop="loop"></audio>
+<audio id="song" type="audio/mp3" src="js/song.mp3" loop="loop" autoplay="autoplay"></audio>
 <script type="text/javascript">
  var count=0;
  var index=0;
@@ -300,7 +300,7 @@
 
 $("#gift").click(function(){
      $("#second").hide();
-	 document.getElementById("song").play();
+	 //document.getElementById("song").play();
       var num=0;
 	  var opacity=1;
      var t=setInterval(function(){
