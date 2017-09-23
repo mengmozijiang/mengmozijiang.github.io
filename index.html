@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>轻轻
+</title>
+   <script type="text/javascript" src="js/jquery.js"></script>
+   <style>
+    *
+    {
+      margin:0;
+      padding:0;
+    }
+    html,body
+    {
+	  width:100%;
+      height:100%;
+	  background: #ffeaea;
+    }
+    #html
+   {
+	 position:relative;
+	 width:1300px;
+	 height:620px;
+	 overflow:hidden;
+	 margin:0 auto;
+     background: #ffeaea;
+   }
+    #main
+	{ 
+	  position:absolute;
+	  top:0;
+	  left:0;
+      width:1300px;
+      height:620px;
+	  background-image:url("back/back1.jpg");
+	  background-size:100%;
+	  line-height:0px;
+	  z-index:998;
+    }
+	    #gift
+		{ position:absolute;
+		  width:70px;
+		  height:70px;
+		  top:200px;
+		  left:610px;
+		  background-image:url(back/gift.gif);
+		  background-size:100%;
+		}
+  
+       
+/*----------------------------加载---------------------------------------------*/
+    #loading
+    {
+     position: absolute;
+     top:0;
+     left:0;
+     width:100%;
+     height:620px;
+     background: #ffedff;
+     background-image:url("back/load.jpg");
+     z-index:999;
+    }
+        progress{
+            position:absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right: 0;
+            width:400px;
+            margin: auto;
+           }
+        #loadNum{
+            position:absolute;
+            top:55%;
+            left:0;
+            bottom:0;
+            right: 0;
+            text-align: center;
+            font-size: 30px;
+            color:green;
+        }
+		#name
+		{
+		   color:red;
+		}
+    </style>
+</head>
+<body>
+<div id="html">  
+   <!--            main            -->
+   <div id="main">
+      <a href="html/main.html"><div id="gift"></div></a>
+   </div>
+   <!--           loading          -->
+   <div id="loading">
+        <progress max="100" min="0" value="0"></progress>
+        <p id="loadNum">0%</p>
+   </div>
+</div>
+<script type="text/javascript">
+ var count=0;
+ var index=0;
+ var imgSrc=["back/load.jpg","back/cake.gif","back/happy.gif","back/back1.jpg","back/gift.gif","back/back2.jpg","back/letter1.gif","back/letter2.gif","back/star.png","back/girl.gif"
+ ];
+  $.each(imgSrc,function(i,src){
+      var img=new Image();
+        $(img).on("load",function(){
+            $("progress").val((count+1)*imgSrc.length);
+            $("#loadNum").html((count+1)*imgSrc.length+"%<br/>正在为<span id='name'>轻轻</span>拼命加载中，稍等哒...");
+            count++;
+			if(count>=imgSrc.length)
+            {
+                $("#loading").hide();
+            }
+        });
+		$(img).on("error",function(){
+		 alert("资源丢失，请联系管理员！");
+		});
+         img.src=src;
+    });
+</script>
+</body>
+</html>
+<!--
+称呼：轻轻
+年龄19
+2017-9-26
+女
+祝福语：今天是你的生日，我特此送来祝福，我知道会有很多人送给你祝福，我不是第一个，也不是最后一个，
+但我相信，我会是那个最用心送祝福的人，我的祝福会是最真心的祝福，不管你信不信，反正我信！
+不信你就闭上眼睛，许个愿吧，保准能实现！轻轻，生日快乐！
+-->
